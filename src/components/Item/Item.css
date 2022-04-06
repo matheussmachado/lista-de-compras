@@ -1,0 +1,30 @@
+.item-container {
+  /* margin: 8px auto; */
+  padding: 10px 5px;
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+}
+
+.item-check-button-container {
+  justify-self: center;
+  align-self: center;  
+  border: 1px solid;
+  border-radius: 5px;  
+}
+
+.item-remove-button-container {
+  border: 1px solid;
+  justify-self: center;
+  align-self: center;    
+}
+
+.item-remove-button-container input {
+  background: none;
+  border: none;
+  cursor: pointer;
+  
+}
+
+.item-container .item-remove-button-container input:hover {
+  background-color: aliceblue;
+}
