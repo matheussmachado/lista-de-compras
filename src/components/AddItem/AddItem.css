@@ -1,5 +1,17 @@
-.add-item-line-container {
-  grid-column: 1/3;
-  /* margin: auto; */
-  justify-content: center;
+/* .add-item-container {
+  display: flex;
+  width: 80%;
+  border: 1px solid red;  
 }
+
+.add-item-container .left-box {
+  flex: 1;
+}
+
+.add-item-container .center-box {
+  flex: 3;
+}
+
+.add-item-container .right-box {
+  flex: 1;
+} */

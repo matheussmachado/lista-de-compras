@@ -1,19 +1,38 @@
-import React from "react";
-import ItemContainer from "../ItemContainer/ItemContainer";
+import React, { useState } from "react";
+import ItemLine from "../ItemLine/ItemLine";
+import ItemBox from "../ItemBox/ItemBox";
 
-//import EmptyLine from "../EmptyLine/EmptyLine";
-import Line from "../Line/Line"
 import "./AddItem.css"
 
-const AddItem = () => {
-  return(
-    //<EmptyLine />
-    <ItemContainer>
-      <div className="add-item-line-container">
-        <Line />    
-      </div>
-    </ItemContainer>
-  )
-} 
 
-export default AddItem 
+const AddItem = ({handleItemAdd}) => {
+  const [inputData, setInputData] = useState("")
+
+  const handleInputChange = (e) => {
+    setInputData(e.target.value)
+  }
+
+  const handleInputAddItemClick = () => {
+    handleItemAdd(inputData)
+    setInputData("")
+  }
+
+  return (
+    <>
+      <ItemBox
+        centerBox={
+          <ItemLine>
+              <input type="text" 
+              placeholder="+ Novo Item"
+              onChange={handleInputChange}
+              value={inputData}
+              />
+          </ItemLine>
+        }
+      />
+      <button onClick={handleInputAddItemClick}>Add</button>
+    </>
+  )
+}
+
+export default AddItem

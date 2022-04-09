@@ -1,0 +1,20 @@
+.item-box {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;  
+  width: 90%;  
+  margin: auto;
+  padding: 5px;  
+}
+
+.item-box .left-box {
+  flex: 1;
+}
+
+.item-box .center-box {
+  flex: 6;
+}
+
+.item-box .right-box {
+  flex: 1;
+}

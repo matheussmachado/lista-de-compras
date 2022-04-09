@@ -9,3 +9,8 @@
   border: 2px solid rgb(59, 57, 57);
   background-color: rgb(105, 96, 119);
 }
+
+.separation {
+	border-bottom: 1px solid thistle;
+	margin-top: 50px;
+}

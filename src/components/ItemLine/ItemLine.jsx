@@ -2,10 +2,10 @@ import React from "react";
 
 import "./ItemLine.css"
 
-const ItemLine = ({itemValue}) => {  
+const ItemLine = (props) => {  
   return (
-    <div className="item-line-container">
-      <input type="text" value={itemValue}/>
+    <div className="line-container">
+      {props.children}
     </div>
   )
 }
