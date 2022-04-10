@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 import AddItem from './components/AddItem/AddItem';
 import UnchechedItems from './components/UncheckedItems/UnchechedItems';
 import CheckedItems from './components/CheckedItems/CheckedItems';
 
 import './App.css';
-
 
 function App() {
   const [items, setItems] = useState([
