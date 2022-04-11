@@ -1,4 +1,4 @@
-import { React, useContext } from "react";
+import { React, useContext, useEffect, useState } from "react";
 
 import ItemBox from "../ItemBox/ItemBox";
 import ItemLine from "../ItemLine/ItemLine";
@@ -8,12 +8,22 @@ import "./CheckedItem.css"
 
 
 const CheckedItems = () => {
-  const {items, handleItemAlteration, handleItemCheck, handleItemDeletion} = useContext(ItemContext)
-
+  const [expandItems, setExpandItems] = useState(true)
+  const {items, handleItemAlteration, handleItemCheck, handleItemDeletion, handleUncheckItems, handleCheckItemsDeletion} = useContext(ItemContext)
+  
   return (
     <div className="checked-items-container"> 
-    {
-      items.filter((item) => item.checked).map((item) => {
+    <button onClick={() => setExpandItems(!expandItems)}>
+      {items.filter((item) => item.checked).length} itens concluídos
+    </button> 
+    <button onClick={handleUncheckItems}>
+      Desmarcar itens
+    </button>
+    <button onClick={handleCheckItemsDeletion}>
+      Deletar itens marcados
+    </button>
+    {       
+      expandItems && items.filter((item) => item.checked).map((item) => {   
         return (        
           <div className="item-container" key={item.id}>
             <ItemBox
@@ -43,6 +53,7 @@ const CheckedItems = () => {
       })
     }
     </div>
+    
   )
 }
 

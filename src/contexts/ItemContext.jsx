@@ -2,10 +2,6 @@ import { React, createContext, useState } from "react";
 
 export const ItemContext = createContext()
 
-const useItem = () => {
-  
-}
-
 const ItemProvider = ({ children }) => {
   const [items, setItems] = useState([
     {
@@ -32,7 +28,6 @@ const ItemProvider = ({ children }) => {
       }
     ]
     setItems(newItems)
-    return newId 
   }
 
   const handleItemAlteration = (newContent, itemId) => {
@@ -58,8 +53,21 @@ const ItemProvider = ({ children }) => {
     setItems(newItems)
   }
 
+  const handleUncheckItems = () => {
+    const newItems = items.map((item) => {
+      if (item.checked === true) return {...item, checked: false}      
+      return item
+    })
+    setItems(newItems)
+  }
+
+  const handleCheckItemsDeletion = () => {
+    const newItems = items.filter((item) => !item.checked)
+    setItems(newItems)
+  }
+
   return (
-    <ItemContext.Provider value={{items, handleItemAdd, handleItemAlteration, handleItemCheck, handleItemDeletion}}>
+    <ItemContext.Provider value={{items, handleItemAdd, handleItemAlteration, handleItemCheck, handleItemDeletion, handleUncheckItems, handleCheckItemsDeletion}}>
       {children}
     </ItemContext.Provider>
   )
