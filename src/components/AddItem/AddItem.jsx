@@ -1,30 +1,30 @@
-import React from "react";
+import {React, useContext} from "react";
+
 import ItemLine from "../ItemLine/ItemLine";
 import ItemBox from "../ItemBox/ItemBox";
+import { ItemContext } from "../../contexts/ItemContext";
 
 import "./AddItem.css"
 
-
-const AddItem = ({handleItemAdd}) => {  
-  const handleInputChange = (e) => {
-    handleItemAdd(e.target.value)
-  }
+const AddItem = () => {      
+  const {handleItemAdd} = useContext(ItemContext)
 
   return (
-    <>
+    <div className="add-item-container">
       <ItemBox
         centerBox={
           <ItemLine>
-              <input type="text" 
-              placeholder="+ Novo Item"
-              onChange={handleInputChange}
-              value=""
-              autoFocus
+              <input 
+                type="text" 
+                placeholder="+ Novo Item"
+                value=""
+                onChange={(e) => handleItemAdd(e.target.value)}
+                autoFocus
               />
           </ItemLine>
         }
       />
-    </>
+    </div>
   )
 }
 

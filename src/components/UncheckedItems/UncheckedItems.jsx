@@ -2,19 +2,18 @@ import { React, useContext } from "react";
 
 import ItemBox from "../ItemBox/ItemBox";
 import ItemLine from "../ItemLine/ItemLine";
-import { ItemContext } from "../../contexts/ItemContext";
+import { ItemContext }  from "../../contexts/ItemContext";
 
-import "./CheckedItem.css"
+import "./UncheckedItems.css"
 
-
-const CheckedItems = () => {
+const UncheckedItems = ()  => {
   const {items, handleItemAlteration, handleItemCheck, handleItemDeletion} = useContext(ItemContext)
 
   return (
-    <div className="checked-items-container"> 
+    <div className="unchecked-items"> 
     {
-      items.filter((item) => item.checked).map((item) => {
-        return (        
+      items.filter((item) => !(item.checked)).map((item, index, itemsArr) => {
+        return (
           <div className="item-container" key={item.id}>
             <ItemBox
               rightBox={
@@ -32,18 +31,19 @@ const CheckedItems = () => {
                 <ItemLine>
                   <input 
                     defaultValue={item.content} 
-                    onChange={handleItemAlteration}
+                    onChange={(e) => handleItemAlteration(e.target.value, item.id)}
+                    autoFocus={index === itemsArr.length - 1} 
                     style={item.checked ? {textDecoration:"line-through"} : {}}
                   />
                 </ItemLine>
               }
             /> 
           </div>
-        )
+        )        
       })
     }
     </div>
   )
 }
 
-export default CheckedItems
+export default UncheckedItems
