@@ -2,3 +2,23 @@
   border-top: 1px solid thistle;
 	margin-top: 50px;
 }
+
+.expand-checked-items {
+  margin: 5px;
+  cursor: pointer;  
+}
+
+.expand-checked-items .left-box {    
+  padding-top: 5px;  
+  align-self: center;
+}
+
+.expand-checked-items .left-box svg {
+  margin-left: 12px;
+  font-size: 1.1em;
+}
+
+.expand-checked-items .center-box {
+  padding-top: 4px;
+  padding-right: 30px;
+}

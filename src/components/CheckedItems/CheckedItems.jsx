@@ -1,29 +1,40 @@
 import { React, useContext, useEffect, useState } from "react";
 
+import { MdOutlineChevronRight } from "react-icons/md"
+
 import ItemBox from "../ItemBox/ItemBox";
 import ItemLine from "../ItemLine/ItemLine";
 import { ItemContext } from "../../contexts/ItemContext";
 
 import "./CheckedItem.css"
 
-
 const CheckedItems = () => {
-  const [expandItems, setExpandItems] = useState(true)
-  const {items, handleItemAlteration, handleItemCheck, handleItemDeletion, handleUncheckItems, handleCheckItemsDeletion} = useContext(ItemContext)
+  const {items, handleItemAlteration, handleItemCheck, handleItemDeletion} = useContext(ItemContext)
+  
+  const [checkedItems, setCheckedItems] = useState(items.filter((item) => item.checked))
+  const [expandItems, setExpandItems] = useState(false)
+
+  useEffect(() => {
+    setCheckedItems(items.filter((item) => item.checked))
+  }, [items])
   
   return (
     <div className="checked-items-container"> 
-    <button onClick={() => setExpandItems(!expandItems)}>
-      {items.filter((item) => item.checked).length} itens concluídos
-    </button> 
-    <button onClick={handleUncheckItems}>
-      Desmarcar itens
-    </button>
-    <button onClick={handleCheckItemsDeletion}>
-      Deletar itens marcados
-    </button>
+      { Boolean(checkedItems.length) && <div className="expand-checked-items" onClick={() => setExpandItems(!expandItems)}>
+        <ItemBox 
+          leftBox={
+            <MdOutlineChevronRight style={ expandItems && {transform: "rotate(90deg)"} }/>
+          }
+          centerBox={
+            <div>
+              {checkedItems.length} itens concluídos
+            </div>
+          }
+        />        
+      </div> }
+        
     {       
-      expandItems && items.filter((item) => item.checked).map((item) => {   
+      expandItems && checkedItems.map((item) => {   
         return (        
           <div className="item-container" key={item.id}>
             <ItemBox
@@ -52,8 +63,7 @@ const CheckedItems = () => {
         )
       })
     }
-    </div>
-    
+    </div>    
   )
 }
 

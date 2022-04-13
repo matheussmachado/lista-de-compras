@@ -1,0 +1,53 @@
+.more-options-button {
+  position: relative;
+  margin-top: 65px;  
+}
+
+.more-options-button svg {
+  position: sticky;
+  left: 500px;
+  font-size: 1.3em;
+  cursor: pointer;
+  margin: 1px;
+}
+
+.more-options-button svg:hover {
+  border: .5px solid;
+  border-radius: 50%;    
+}
+
+.modal-container {
+  position: relative;
+  padding: 20px;
+  margin: 20px;    
+}
+
+.modal-options {
+  position: absolute;  
+  margin: 1px;
+  right: 10px;
+  border: 1px solid;
+  border-radius: 10px;  
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.822);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.modal-options div {
+  padding: 5px;
+  width: 100%;
+}
+
+.modal-options div:hover {
+  background-color: antiquewhite;
+}
+
+.modal-options button {  
+  display: block;
+  border: none;
+  border-radius: 1px;
+  background: none;
+  cursor: pointer;
+  font-size: 1.1em;
+  
+}
