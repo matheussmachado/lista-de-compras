@@ -1,9 +1,9 @@
 import { React, useContext, useEffect, useState } from "react";
-
-import { MdOutlineChevronRight } from "react-icons/md"
+import { MdOutlineChevronRight, MdOutlineCheckBox } from "react-icons/md"
 
 import ItemBox from "../ItemBox/ItemBox";
 import ItemLine from "../ItemLine/ItemLine";
+import ItemDeleteButton from "../ItemDeleteButton/ItemDeleteButton";
 import { ItemContext } from "../../contexts/ItemContext";
 
 import "./CheckedItem.css"
@@ -12,7 +12,7 @@ const CheckedItems = () => {
   const {items, handleItemAlteration, handleItemCheck, handleItemDeletion} = useContext(ItemContext)
   
   const [checkedItems, setCheckedItems] = useState(items.filter((item) => item.checked))
-  const [expandItems, setExpandItems] = useState(false)
+  const [expandItems, setExpandItems] = useState(true)
 
   useEffect(() => {
     setCheckedItems(items.filter((item) => item.checked))
@@ -27,25 +27,22 @@ const CheckedItems = () => {
           }
           centerBox={
             <div>
-              {checkedItems.length} itens concluídos
+              {checkedItems.length}
+              {checkedItems.length > 1 ? " itens concluídos" : " item concluído"}
             </div>
           }
         />        
       </div> }
-        
     {       
       expandItems && checkedItems.map((item) => {   
         return (        
           <div className="item-container" key={item.id}>
             <ItemBox
               rightBox={
-                <input type="button" value="X"
-                onClick={()=> handleItemDeletion(item.id)}
-                />
+                <ItemDeleteButton handleItemDeletion={() => handleItemDeletion(item.id)}/>
               }
               leftBox={
-                <input 
-                  type="checkbox" defaultChecked={item.checked} 
+                <MdOutlineCheckBox 
                   onClick={() => handleItemCheck(item.id)}
                 />
               }
@@ -53,7 +50,7 @@ const CheckedItems = () => {
                 <ItemLine>
                   <input 
                     defaultValue={item.content} 
-                    onChange={handleItemAlteration}
+                    onChange={(e) => handleItemAlteration(e.target.value, item.id)}
                     style={item.checked ? {textDecoration:"line-through"} : {}}
                   />
                 </ItemLine>

@@ -1,45 +1,64 @@
+.more-options-button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .more-options-button {
-  position: relative;
-  margin-top: 65px;  
+  display: flex;
+  padding: 4px;
+  border-radius: 50%;
 }
 
-.more-options-button svg {
-  position: sticky;
-  left: 500px;
-  font-size: 1.3em;
+.more-options-button:hover {  
   cursor: pointer;
-  margin: 1px;
+  background-color: rgba(250, 235, 215, 0.486);
 }
 
-.more-options-button svg:hover {
-  border: .5px solid;
-  border-radius: 50%;    
+.more-options-button svg {  
+  font-size: 1.3em;
 }
 
 .modal-container {
   position: relative;
   padding: 20px;
-  margin: 20px;    
+  margin: 20px;
 }
 
 .modal-options {
   position: absolute;  
   margin: 1px;
   right: 10px;
-  border: 1px solid;
+  border: 1px solid rgba(0, 0, 0, 0.6);
   border-radius: 10px;  
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.822);
+  box-shadow: 0px 0px 10px -3px rgba(0, 0, 0, 0.822);
   padding-top: 10px;
   padding-bottom: 10px;
+  opacity: 0;
+  animation-name: slide-options;
+  animation-duration: .3s;
+  animation-delay: 0.1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slide-options {
+  to {
+    opacity: 1;
+    transform: translateY(-5px);  
+  }
+}
+
+.modal-options {
+  margin: 2px;
 }
 
 .modal-options div {
   padding: 5px;
   width: 100%;
+  cursor: pointer;
 }
 
 .modal-options div:hover {
-  background-color: antiquewhite;
+  background-color: rgba(250, 235, 215, 0.486);
 }
 
 .modal-options button {  
@@ -49,5 +68,4 @@
   background: none;
   cursor: pointer;
   font-size: 1.1em;
-  
 }

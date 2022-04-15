@@ -1,7 +1,9 @@
 import { React, useContext } from "react";
+import { MdOutlineCheckBoxOutlineBlank } from "react-icons/md"
 
 import ItemBox from "../ItemBox/ItemBox";
 import ItemLine from "../ItemLine/ItemLine";
+import ItemDeleteButton from "../ItemDeleteButton/ItemDeleteButton";
 import { ItemContext }  from "../../contexts/ItemContext";
 
 import "./UncheckedItems.css"
@@ -17,13 +19,10 @@ const UncheckedItems = ()  => {
           <div className="item-container" key={item.id}>
             <ItemBox
               rightBox={
-                <input type="button" value="X"
-                onClick={()=> handleItemDeletion(item.id)}
-                />
+                <ItemDeleteButton handleItemDeletion={() => handleItemDeletion(item.id)}/>
               }
               leftBox={
-                <input 
-                  type="checkbox" defaultChecked={item.checked} 
+                <MdOutlineCheckBoxOutlineBlank
                   onClick={() => handleItemCheck(item.id)}
                 />
               }

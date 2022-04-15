@@ -1,15 +1,27 @@
-.item-container .left-box {
-  margin: auto;  
+.unchecked-items .item-container .left-box {
+  margin: auto;
 }
 
-.item-container .left-box input {
+.unchecked-items .item-container .left-box svg {
   margin-left: 30%;
+  cursor: pointer;
+  font-size: 1.1em;
 }
 
-.item-container .right-box {
-  margin: auto;  
+.unchecked-items .item-container .left-box svg:hover {
+  color: rgba(250, 235, 215, 0.486);
 }
 
-.item-container .right-box input {
-  margin-left: 30%;
+.unchecked-items .item-container .center-box {
+  opacity: 0;
+  animation-name: slide-unchecked-text-item;
+  animation-duration: .08s;
+  animation-delay: 0.042s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slide-unchecked-text-item {
+  to {
+    opacity: 1;
+  }
 }

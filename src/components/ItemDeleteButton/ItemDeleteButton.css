@@ -1,0 +1,15 @@
+.deletion-button { 
+  display: flex;    
+  border-radius: 50%;
+  padding: 4px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.deletion-button:hover {
+  background-color: rgba(250, 235, 215, 0.486);  
+}
+
+.deletion-button svg {
+  font-size: 1.1em;
+}

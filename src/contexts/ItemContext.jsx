@@ -5,14 +5,14 @@ export const ItemContext = createContext()
 const ItemProvider = ({ children }) => {
   const [items, setItems] = useState([
     {
-      content: "algo",
+      content: "item 0",
       checked: false,
       id: "0"
     },
     {
       id: "1",
       checked: false,
-      content: "outro"
+      content: "item 1"
       
     }
   ])

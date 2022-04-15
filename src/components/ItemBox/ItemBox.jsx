@@ -2,21 +2,16 @@ import { React, useState } from "react";
 
 import "./ItemBox.css"
 
-
 const ItemBox = (props) => {
-
   const [isHovering, setIsHovering] = useState(false)
-
-  const [focused, setFocused] = useState(false)
+  const [isFocused, setIsFocused] = useState(false)
 
   const handleOnFocus = () => {
-    setFocused(true)
-    setIsHovering(true)
+    setIsFocused(true)
   }
 
   const handleOnBlur = () => {
-    setFocused(false)
-    setIsHovering(false)
+    setIsFocused(false)
   }
 
   const handleOnMouseEnter = () => {
@@ -24,7 +19,7 @@ const ItemBox = (props) => {
   }
   
   const handleOnMouseLeave = () => {    
-    if (!focused) setIsHovering(false)
+    setIsHovering(false)
   }
 
   return (
@@ -35,8 +30,8 @@ const ItemBox = (props) => {
       <div className="center-box" onFocus={handleOnFocus} onBlur={handleOnBlur}>
         {props.centerBox}
       </div>
-      <div className="right-box" 
-      style={{visibility : isHovering ? "visible" : "hidden"}}
+      <div className="right-box"
+      style={{opacity : !(isFocused || isHovering) && "0"}}
       >
         {props.rightBox}
       </div>

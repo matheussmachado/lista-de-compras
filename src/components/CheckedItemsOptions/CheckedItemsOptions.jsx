@@ -13,21 +13,19 @@ const CheckedItemsOptions = () => {
   return (
     <div className="checked-item-options">
       <div className="modal-container">
-          {isModalVisible && <div id="modal-options" className="modal-options" >
-            <div className="uncheck-items">
-              <button onClick={handleUncheckItems}>
-                Desmarcar itens
-              </button>
+          {isModalVisible && <div className="modal-options">
+            <div className="uncheck-items" onClick={handleUncheckItems}>              
+                Desmarcar itens              
             </div>
-            <div className="delete-items">
-              <button onClick={handleCheckItemsDeletion}>
-                Deletar itens marcados
-              </button>
+            <div className="delete-items" onClick={handleCheckItemsDeletion}>              
+                Deletar itens marcados              
             </div>
           </div>}
       </div>
-      <div className="more-options-button">
-        <MdOutlineMoreVert onClick={() => setIsModalVisible(!isModalVisible)}/>
+      <div className="more-options-button-container">
+        <div className="more-options-button" onClick={() => setIsModalVisible(!isModalVisible)}>
+          <MdOutlineMoreVert/>
+        </div>
       </div>
     </div>
   )

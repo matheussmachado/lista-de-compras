@@ -17,4 +17,7 @@
 
 .item-box .right-box {
   flex: 1;
+  display: flex;
+  justify-content: center;
+  margin: auto;  
 }

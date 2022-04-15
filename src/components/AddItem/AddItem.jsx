@@ -4,8 +4,6 @@ import ItemLine from "../ItemLine/ItemLine";
 import ItemBox from "../ItemBox/ItemBox";
 import { ItemContext } from "../../contexts/ItemContext";
 
-import "./AddItem.css"
-
 const AddItem = () => {      
   const {handleItemAdd} = useContext(ItemContext)
 
